@@ -22,7 +22,7 @@ class LoginForm extends React.Component {
 
     componentWillMount(){
         if(this.Auth.loggedIn()){
-            browserHistory.push('/book-slot');
+            browserHistory.push('/reserve-slot');
         }
     }
 
@@ -31,7 +31,7 @@ class LoginForm extends React.Component {
         this.setState({ errors: {}, isLoading: true });
         this.props.login(this.state).then((res) => {
             console.log("Response is",res);
-            this.context.router.push('/book-slot')    
+            this.context.router.push('/reserve-slot')    
         });
     }
 
@@ -86,7 +86,7 @@ class LoginForm extends React.Component {
         this.Auth.login(this.state.username,this.state.password)
             .then(res =>{
                 console.log("Response",res)
-               browserHistory.push('/book-slot');
+               browserHistory.push('/reserve-slot');
             })
             .catch(err =>{
                 alert(err);
